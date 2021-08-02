@@ -2,7 +2,7 @@
 ## Starting the Project
 
 1) For accessing laravel framewok,
--  one needs to be in project folder. For windows : C:\laravel\ecomtrial>php artisan serve
+-  one needs to be in project folder. For windows : C:\laravel\ecomtrial>php artisan serve ( This starts the server at http://127.0.0.1:8000)
 -  For views, we have welcome.blade, master.blade(HomePage), header.blade, footer.blade,login.blade
  
 -  For DB, in .env file, DB name should be ecomtrial. Simultaneously, create a DB in Xampp inside phpmyadmin.
