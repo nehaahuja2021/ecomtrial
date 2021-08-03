@@ -1,7 +1,7 @@
 
 ## Starting the Project
 
-1) For accessing laravel framework,
+ Day 1) For accessing laravel framework,
 -  one needs to be in project folder. For windows : C:\laravel\ecomtrial>php artisan serve ( This starts the server at http://127.0.0.1:8000)
 -  For views, we have welcome.blade, master.blade(HomePage), header.blade, footer.blade,login.blade ( As of now, Bootstrap has been used for basic layout)
  
@@ -23,3 +23,6 @@
 - Now to migrate this table to DB, use cmd : C:\laravel\ecomtrial>php artisan migrate  & VOILA !! Table is migrated to DB.
 - To add Dummy Data in DB, we use Seeder and cmd is C:\laravel\ecomtrial>php artisan make:seeder UserSeeder ( This can de added through XAMPP GUI also)
 - Check userseeder file and then use C:\laravel\ecomtrial>php artisan db:seed --class UserSeeder  to insert data to DB table.
+
+
+Day 2) New table Products created and added data to it. Products page render all data from db. So flow of app: User logs in->Lands to Products Page.
