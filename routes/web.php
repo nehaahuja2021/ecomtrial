@@ -17,3 +17,7 @@ Route::post('/login', [UserController::class,'login']);
 Route::get('/product',
     [ProductController::class,'index']);
 
+    Route::get('/search',
+    [ProductController::class,'search']);
+
+   
