@@ -26,3 +26,6 @@
 
 
 Day 2) New table Products created and added data to it. Products page render all data from db. So flow of app: User logs in->Lands to Products Page.
+
+
+Day 3) User can search for fruits and vegetables using search feature on homepage.
