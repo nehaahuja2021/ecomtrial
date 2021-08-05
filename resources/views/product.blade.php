@@ -13,10 +13,15 @@
     <h5 class="card-title">{{$item->name}}</h5>
     <p class="card-text">{{$item->description}}</p>
     <p class="card-price">{{$item->price}}</p>
-    <a href="#" class="btn btn-primary">Add to Cart</a>
+    <!---Add to cart --->
+    <form action="/addtocart" method="POST">
+      @csrf
+      <input type="hidden" name="product_id" value="
+      {{$item->id}}" />
+    <button class="btn btn-primary">Add to Cart</a>
+     </form>
   </div>
 </div>
-
 @endforeach
 
 </div>

@@ -4,36 +4,69 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\product;
+use App\Models\cart;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
+use Session;
 class ProductController extends Controller
 {
     function index()
     {
-        /*$data=product::all();
+        $data=product::all();
         
         /* storing data in variable and passing it to view with an array named products.*/
-        
-        //return view ('product',['products'=>$data]);One way
-        return view ('product')->with('products',product::all());
+                //return view ('product',['products'=>$data]);One way
+//////////////////////
+       /*return view ('product')->with('products',product::all());*/
+      
+      return response()->json($data);
         
     }
 
 
     public function search(request $request)
-    {
-              
+    {              
       $user_input= $request->searchform;
       //echo "$user_input";
       
-      /*$db_output=DB::table('products')->where('name', 'like' ,'%' .$user_input. '%')->get();*/
+     /* $db_output=DB::table('products')->where('name', 'like' ,'%' .$user_input. '%')->get();
+      return response()->json($db_output); */  
+   
+         return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  
    
 
-           //echo "$db_output";
-    
-    return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());
-        
-
-
 }
+
+
+function add_to_cart(request $req)
+
+{
+    if ($req->session()->has('user'))
+    {
+     $cart = new cart;
+     $cart ->user_id=$req->session()->get('user')['id'];
+     $cart ->product_id=$req->product_id;
+     $cart->save();
+     return redirect('/yourcart');
+    }
+    else{
+        return redirect("/login");
+    }
+}
+
+static function cartItem ()
+{
+    $userId = Session::get('user')['id'];
+    //return Cart ::where('user_id', $userId)->count();
+
+    $cart_count=DB::table('cart')->where('user_id', $userId)->count();
+      
+
+return \View::make('/yourcart')->with('cart_count', $cart_count);
+// slash before view as view class is not included.
+      //return response()->json($cart_count);
+}
+
+
 }
