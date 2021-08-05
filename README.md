@@ -29,3 +29,5 @@ Day 2) New table Products created and added data to it. Products page render all
 
 
 Day 3) User can search for fruits and vegetables using search feature on homepage.
+
+Day 4) End point API for products page done. Also Add to cart feature added.
