@@ -1,5 +1,5 @@
 
-## Starting the Project
+## Fresh Webshop
 
  Day 1) For accessing laravel framework,
 -  one needs to be in project folder. For windows : C:\laravel\ecomtrial>php artisan serve ( This starts the server at http://127.0.0.1:8000)
