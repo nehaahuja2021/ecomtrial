@@ -1,0 +1,1 @@
+<h3> total items in cart are:{{$cart_count}} </h3>
