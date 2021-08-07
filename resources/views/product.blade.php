@@ -2,8 +2,8 @@
 @extends('master')
 @section('content')
 
-
 <h2> Welcome to Products Page </h2>
+
 <div class="container">
 
         @foreach($products as $item)
@@ -24,6 +24,5 @@
 </div>
 @endforeach
 
-</div>
 
 @endsection

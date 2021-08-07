@@ -18,9 +18,9 @@ class ProductController extends Controller
         /* storing data in variable and passing it to view with an array named products.*/
                 //return view ('product',['products'=>$data]);One way
 //////////////////////
-       /*return view ('product')->with('products',product::all());*/
+       return view ('product')->with('products',product::all());
       
-      return response()->json($data);
+     // return response()->json($data);
         
     }
 
@@ -55,17 +55,32 @@ function add_to_cart(request $req)
     }
 }
 
-static function cartItem ()
+ function cartItem ()
 {
     $userId = Session::get('user')['id'];
     //return Cart ::where('user_id', $userId)->count();
 
     $cart_count=DB::table('cart')->where('user_id', $userId)->count();
       
+//return \View::make('/yourcart')->with('cart_count', $cart_count);
 
-return \View::make('/yourcart')->with('cart_count', $cart_count);
 // slash before view as view class is not included.
       //return response()->json($cart_count);
+    
+      }
+
+function cartlist()
+{
+
+$userId=Session::get('user')['id'];
+$prod_display=DB::table('cart')
+->join('products','cart.product_id','=','products.id')
+-> where('cart.user_id',$userId)
+->select('products.*')
+->get();
+//echo "$prod_display";
+return view('yourcart',['productsdisplay'=>$prod_display]);
+
 }
 
 
