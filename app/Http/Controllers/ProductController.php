@@ -18,9 +18,9 @@ class ProductController extends Controller
         /* storing data in variable and passing it to view with an array named products.*/
                 //return view ('product',['products'=>$data]);One way
 //////////////////////
-       return view ('product')->with('products',product::all());
+       //return view ('product')->with('products',product::all());
       
-     // return response()->json($data);
+      return response()->json($data);
         
     }
 
@@ -30,10 +30,10 @@ class ProductController extends Controller
       $user_input= $request->searchform;
       //echo "$user_input";
       
-     /* $db_output=DB::table('products')->where('name', 'like' ,'%' .$user_input. '%')->get();
-      return response()->json($db_output); */  
+      $db_output=DB::table('products')->where('name', 'like' ,'%' .$user_input. '%')->get();
+      return response()->json($db_output);  
    
-         return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  
+        /* return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  */
    
 
 }
