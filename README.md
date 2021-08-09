@@ -32,5 +32,5 @@ Day 3) User can search for fruits and vegetables using search feature on homepag
 
 Day 4) End point API for products page done. Also Add to cart feature added.
 
-Day 5) User can add products and can see his products added to cart.
+Day 5) User can add products and can see his products added to cart.Login-Logout working.
 
