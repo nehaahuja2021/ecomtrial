@@ -18,9 +18,9 @@ class ProductController extends Controller
         /* storing data in variable and passing it to view with an array named products.*/
                 //return view ('product',['products'=>$data]);One way
 //////////////////////
-       //return view ('product')->with('products',product::all());
+       return view ('product')->with('products',product::all());
       
-      return response()->json($data);
+      //return response()->json($data);
         
       
     }
@@ -34,14 +34,10 @@ class ProductController extends Controller
       $db_output=DB::table('products')->where('name', 'like' ,'%' .$user_input. '%')->get();
       //return response()->json($db_output);  
    
-         /*return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  */
-   
-         /*return response($db_output)
-         ->header('Content-Type', json)
-         ->header('X-Header-One', 'Header Value')
-         ->header('X-Header-Two', 'Header Value');*/
+         return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  
+           
 
-         return response()->json(['data' => $db_output->toArray()], 201);
+        /* return response()->json(['data' => $db_output->toArray()], 201);*/
 }
 
 
@@ -85,8 +81,26 @@ $prod_display=DB::table('cart')
 ->select('products.*')
 ->get();
 //echo "$prod_display";
-return view('yourcart',['productsdisplay'=>$prod_display]);
+//return view('yourcart',['productsdisplay'=>$prod_display]);
+return response()->json($prod_display);
 
+}
+
+function vegetables()
+{
+    
+    $data_veggies = DB::table('products')
+    ->whereIn('category_id', [1])
+    ->get();
+    return response()->json(['vegetables' => $data_veggies->toArray()], 201);
+}
+function fruits()
+{
+    
+    $data_fruits = DB::table('products')
+    ->whereIn('category_id', [2])
+    ->get();
+    return response()->json(['fruits' => $data_fruits->toArray()], 201);
 }
 
 

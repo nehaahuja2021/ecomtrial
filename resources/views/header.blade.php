@@ -17,10 +17,21 @@
         <li class="nav-item">
           <a class="nav-link active" href="/register">Register</a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link active" href="/vegetables">Vegetables</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fruits">Fruits</a>
+        </li>
+
         <li class="nav-item" >
           <a class="nav-link active" href="/product">Cart(0)</a>
         </li>
+        
+
+
+
+
         
 @if(Session::has('user')) 
         <li class="dropdown">
