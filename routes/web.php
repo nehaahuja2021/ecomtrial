@@ -19,7 +19,10 @@ Route::get('/logout', function () {
 
 
 Route::post('/login', [UserController::class,'login']);
+
+/* for registration */
 Route::view('/register','register');
+Route::post('/register', [UserController::class,'register']);
 
 Route::get('/product',
     [ProductController::class,'index']);
@@ -32,4 +35,7 @@ Route::get('/product',
 
     Route::get('/yourcart',
     [ProductController::class,'cartlist']);
+
+    Route::get('/vegetables',[ProductController::class,'vegetables']);
+    Route::get('/fruits',[ProductController::class,'fruits']);
     
