@@ -22,6 +22,7 @@ class ProductController extends Controller
       
       return response()->json($data);
         
+      
     }
 
 
@@ -31,11 +32,16 @@ class ProductController extends Controller
       //echo "$user_input";
       
       $db_output=DB::table('products')->where('name', 'like' ,'%' .$user_input. '%')->get();
-      return response()->json($db_output);  
+      //return response()->json($db_output);  
    
-        /* return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  */
+         /*return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  */
    
+         /*return response($db_output)
+         ->header('Content-Type', json)
+         ->header('X-Header-One', 'Header Value')
+         ->header('X-Header-Two', 'Header Value');*/
 
+         return response()->json(['data' => $db_output->toArray()], 201);
 }
 
 
