@@ -1,6 +1,6 @@
 
 <h2> your cart items </h2>
-
+<a href="/product"> Go back to products </a>
 <div class="container">
 
         @foreach($productsdisplay as $item)
@@ -10,10 +10,13 @@
     <h5 class="card-title">{{$item->name}}</h5>
     <p class="card-text">{{$item->description}}</p>
     <p class="card-price">{{$item->price}}</p>
-        <form action="">
-                <button class="btn btn-primary">Delete from cart</a>
-     </form>
-  </div>
+        
+<a class href="/deletefromcart/{{$item->cart_id}}">Delete from cart </a>
+
+<br>
+<a class href="/ordernow">Order Now </a>
+      
+      </div>
 </div>
 @endforeach
 <style>
