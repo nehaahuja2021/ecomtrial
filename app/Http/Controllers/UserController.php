@@ -10,7 +10,8 @@ class UserController extends Controller
 {
     function login (Request $req)
     {
-        //return $req->input(); [generates all info added]
+        //return $req->input(); 
+        
         $user= User::where(['email'=>$req->email])->first();
         if(!$user ||!Hash::check($req->password,$user->password)) //check func takes 2 params, one req coming from using and other user which is getting password from DB
         {
@@ -19,8 +20,10 @@ class UserController extends Controller
         else
         {
             $req->session()->put('user',$user);
-            return response()->json($req);
             return redirect ('/product');
+            //return response()->json($req);
+            //return json_decode($req->getBody(), true)['access_token'];
+           
         }
     }
 function register(Request $req)
