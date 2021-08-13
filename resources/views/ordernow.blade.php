@@ -7,7 +7,7 @@
     <tbody>
       <tr>
         <td>Amount</td>
-        <td>{{ordernow->$prod_order}}</td>
+        <td>{{$prod_order}}</td>
         
       </tr>
       <tr>
@@ -17,7 +17,7 @@
       </tr>
       <tr>
         <td>Total Amount</td>
-        <td>{{ordernow->$prod_order+10}}</td>
+        <td></td>
        
       </tr>
     </tbody>

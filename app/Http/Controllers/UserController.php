@@ -19,7 +19,7 @@ class UserController extends Controller
         else
         {
             $req->session()->put('user',$user);
-            //return "You are now logged in";
+            return response()->json($req);
             return redirect ('/product');
         }
     }
@@ -33,6 +33,7 @@ $user->name=$req->name;
 $user->email=$req->email;
 $user->password=Hash::make($req->password);
 $user->save();
+return response()->json($user);
 return redirect('/login');
 
 
