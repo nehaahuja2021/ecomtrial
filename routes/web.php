@@ -35,6 +35,8 @@ Route::get('/product',
 
     Route::get('/yourcart',
     [ProductController::class,'cartlist']);
+    
+
 /* Home Page */
     Route::get('/vegetables',[ProductController::class,'vegetables']);
     Route::get('/fruits',[ProductController::class,'fruits']);
