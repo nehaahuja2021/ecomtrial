@@ -1,5 +1,4 @@
 
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Fresh Shop</a>
@@ -11,12 +10,8 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/myorders">Orders</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/register">Register</a>
-        </li>
+        
+        
         <li class="nav-item">
           <a class="nav-link active" href="/vegetables">Vegetables</a>
         </li>
@@ -27,6 +22,9 @@
         <li class="nav-item" >
           <a class="nav-link active" href="/product">Cart(0)</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/register">Register</a>
+        </li>
         
 
 
@@ -35,10 +33,14 @@
         
 @if(Session::has('user')) 
         <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{Session::get('user')['name']}}
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logged in as: {{Session::get('user')['name']}}
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
+          <li><a class="nav-link active" href="/myorders">Orders</a>
+        </li>
           <li><a href="/logout">Logout</a></li>
+          
+          
           
         </ul>
       </li>
