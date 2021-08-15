@@ -45,5 +45,12 @@ Route::get('/product',
 
     Route::get('/deletefromcart/{id}',
     [ProductController::class,'delete_from_cart']);
+
+    /* order */
     Route::get('/ordernow',
     [ProductController::class,'order_now']);
+    Route::post('/orderplace',
+    [ProductController::class,'orderPlace']);
+
+    Route::get('/myorders',
+    [ProductController::class,'myOrders']);
