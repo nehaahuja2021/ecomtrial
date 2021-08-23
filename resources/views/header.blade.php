@@ -20,7 +20,7 @@
         </li>
 
         <li class="nav-item" >
-          <a class="nav-link active" href="/product">View Products</a>
+          <a class="nav-link active" href="/product">View All Products Available</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/register">Register</a>
