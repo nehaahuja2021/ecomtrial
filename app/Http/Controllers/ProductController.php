@@ -19,9 +19,9 @@ class ProductController extends Controller
         /* storing data in variable and passing it to view with an array named products.*/
                 //return view ('product',['products'=>$data]);One way
 //////////////////////
-      return view ('product')->with('products',product::all());
+      //return view ('product')->with('products',product::all());
       
-      //return response()->json($data);
+      return response()->json($data);
         
       
     }
@@ -35,10 +35,11 @@ class ProductController extends Controller
       $db_output=DB::table('products')->where('name', 'like' ,'%' .$user_input. '%')->get();
       //return response()->json($db_output);  
    
-         return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  
+        // return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  
            
+        
 
-         //return response()->json(['data' => $db_output->toArray()], 201);
+         return response()->json(['data' => $db_output->toArray()], 201);
 }
 
 
@@ -68,10 +69,10 @@ function add_to_cart(request $req)
 //return \View::make('/yourcart')->with('total_count', $cart_count);
 
 // slash before view as view class is not included.
-      //return response()->json($cart_count);
+      return response()->json($cart_count);
       //return view('yourcart')
       //->with('carttotalitems', //$cart_count);
-      return $cart_count;
+     // return $cart_count;
       }
 
 function cartlist()
@@ -84,8 +85,8 @@ $prod_display=DB::table('cart')
 ->select('products.*','cart.id as cart_id')
 ->get();
 //echo "$prod_display";
-return view('yourcart',['productsdisplay'=>$prod_display]);
-//return response()->json($prod_display);
+//return view('yourcart',['productsdisplay'=>$prod_display]);
+return response()->json($prod_display);
 
 }
 
@@ -123,10 +124,10 @@ function order_now()
     ->sum('products.price');
    // echo "$prod_order";
     
-       //return Response::json(['ordernow' => $prod_order]);
+       return Response::json(['ordernow' => $prod_order]);
 
-  return view('ordernow')
-   ->with('ordernow', $prod_order);
+  //return view('ordernow')
+   //->with('ordernow', $prod_order);
 
 }
 
@@ -164,9 +165,9 @@ function myOrders()
     ->get();
     //return $items_ordered;
 
-    return view ('myorders',['orders'=> $items_ordered]);
+   // return view ('myorders',['orders'=> $items_ordered]);
 
-   //return response()->json(['orders' => $items_ordered->toArray()], 201);
+   return response()->json(['orders' => $items_ordered->toArray()], 201);
 
 }
 

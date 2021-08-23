@@ -11,6 +11,7 @@
     <p class="card-text">{{$item->description}}</p>
     <p class="card-price">{{$item->price}}</p>
     <a href="#" class="btn btn-primary">Add to Cart</a>
+    
   </div>
 </div>
 
