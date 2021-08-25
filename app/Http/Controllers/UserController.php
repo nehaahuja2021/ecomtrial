@@ -89,6 +89,7 @@ class UserController extends Controller
 
         return response(['user' => auth()->user(), 'token' => $token]);
         //return $request;
+       // return $data;
 
     }
 }
