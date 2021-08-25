@@ -22,7 +22,8 @@ Route::get('/logout', function () {
 
 /* for registration */
 Route::view('/register','register');
-/*Route::post('/register', [UserController::class,'register']);
+
+/*Route::post('/register', [UserController::class,'register']);*/
 
 Route::get('/product',
     [ProductController::class,'index']);
