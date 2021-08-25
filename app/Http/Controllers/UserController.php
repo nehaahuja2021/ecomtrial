@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Validator;
 
+
 /*class UserController extends Controller
 {
     function login (Request $req)
@@ -54,7 +55,7 @@ return response()->json($user);
 
 class UserController extends Controller
 {
-    public function register(Request $request)
+    /*public function register(Request $request)
     {
         $data = $request->validate([
             'name' => 'required|max:255',
@@ -71,7 +72,32 @@ class UserController extends Controller
         return response([ 'user' => $user, 'token' => $token]);
 
         //return $request;
-    }
+        //return $token;
+    }*/
+
+/////////////////////////
+public function register(Request $req)
+{
+
+return $req->input();
+
+$user=new User;
+$user->name=$req->name;
+$user->email=$req->email;
+$user->password=Hash::make($req->password);
+$token = Str::random(60);
+    $user = User::find(1);
+    $user->api_token = hash('sha256', $token); // <- This will be used in client access
+$user->save();
+return response([ 'user' => $user, 'token' => $token]);
+}
+////////////////////
+
+
+
+
+
+
 
     public function login(Request $request)
     {
