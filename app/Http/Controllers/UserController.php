@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Validator;
 
-class UserController extends Controller
+/*class UserController extends Controller
 {
     function login (Request $req)
     {
@@ -50,13 +50,13 @@ $user->save();
 return response()->json($user);
 //return redirect('/login');
 
-}
+}*/
 
-/*class UserController extends Controller
+class UserController extends Controller
 {
     public function register(Request $request)
     {
-       /* $data = $request->validate([
+        $data = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed'
@@ -68,10 +68,10 @@ return response()->json($user);
 
         $token = $user->createToken('API Token')->accessToken;
 
-        return response([ 'user' => $user, 'token' => $token]);*/
+        return response([ 'user' => $user, 'token' => $token]);
 
         //return $request;
-    /*}
+    }
 
     public function login(Request $request)
     {
@@ -90,7 +90,7 @@ return response()->json($user);
         return response(['user' => auth()->user(), 'token' => $token]);
         //return $request;
 
-    }*/
+    }
 }
 
 
