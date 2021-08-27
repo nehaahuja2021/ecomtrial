@@ -35,28 +35,28 @@ class ProductController extends Controller
       $db_output=DB::table('products')->where('name', 'like' ,'%' .$user_input. '%')->get();
       //return response()->json($db_output);  
    
-        // return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());  
-           
+        // return view ('search')->with('productArr',product::where('name', 'like' ,'%' .$user_input. '%')->get());            
         
 
          return response()->json(['data' => $db_output->toArray()], 201);
 }
 
 
-function add_to_cart(request $req)
+function user_order(request $req)
 
 {
-    if ($req->session()->has('user'))
-    {
+    //if ($req->session()->has('user'))
+    
      $cart = new cart;
-     $cart ->user_id=$req->session()->get('user')['id'];
+     $cart ->user_id=$req->user_id;
      $cart ->product_id=$req->product_id;
      $cart->save();
-     return redirect('/yourcart');
-    }
-    else{
+     //return redirect('/yourcart');
+     //return $cart;
+     return response()->json(['data' => $cart->toArray()], 201);
+    /*else{
         return redirect("/login");
-    }
+    }*/
 }
 
  function cartItem ()

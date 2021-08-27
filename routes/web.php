@@ -31,8 +31,8 @@ Route::get('/product',
     Route::get('/search',
     [ProductController::class,'search']);
 
-    Route::post('/addtocart',
-    [ProductController::class,'add_to_cart']);
+    /*Route::post('/addtocart',
+    [ProductController::class,'add_to_cart']);*/
 
     Route::get('/yourcart',
     [ProductController::class,'cartlist']);
